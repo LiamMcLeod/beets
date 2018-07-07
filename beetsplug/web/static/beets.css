@@ -159,6 +159,8 @@ header h1 {
     color: #666;
 }
 
+
+/* Straight Copy and Paste from https://www.w3schools.com/howto/howto_js_sidenav.asp **/
 /* The side navigation menu */
 #sidenav {
     display:none;
