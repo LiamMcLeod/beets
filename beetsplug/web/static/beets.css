@@ -56,13 +56,6 @@ a.navbar-brand.mr-2:hover {
 }
 
 #entities {
-    width: 17em;
-    position: fixed;
-    top: 36px;
-    left: 0;
-    bottom: 0;
-    margin: 0;
-    z-index: 1;
     /* background: #fff; */
     /* shadowy border */
     /* box-shadow: 0 0 20px #666;
@@ -70,11 +63,11 @@ a.navbar-brand.mr-2:hover {
     -moz-box-shadow: 0 0 20px #666; */
 }
 
-#queryForm {
+/* #queryForm { */
     /* display: block; */
     /* text-align: center; */
     /* margin: 0.25em 0; */
-}
+/* } */
 
 #query {
     width: 91%;
@@ -85,15 +78,9 @@ a.navbar-brand.mr-2:hover {
     width: 100%;
 }
 
-#entities tbody {
-    top: 50px;
-    left: 0;
-    bottom: 0;
-    margin: 2.2em 0 0 0;
-    padding: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+/* #entities tbody {
+ 
+} */
 
 #entities tbody tr {
     list-style: none;

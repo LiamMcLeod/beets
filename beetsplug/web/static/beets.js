@@ -73,6 +73,8 @@ $.fn.player = function (debug) {
 
     // TODOS
     // Maybe Migrate to Vue
+    // Fix seeker
+    // Now playing range bar too quick
     //? References
     // https://www.w3schools.com/tags/ref_eventattributes.asp
     // https://www.w3schools.com/tags/ref_av_dom.asp
