@@ -1,8 +1,8 @@
-body {
+ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
-#header {
+header {
     position: fixed;
     left: 0;
     right: 0;
@@ -23,7 +23,7 @@ body {
     background: -moz-linear-gradient(top, #6b6b6b 0%, #0e0e0e 100%);
     background: -webkit-linear-gradient(top, #6b6b6b 0%,#0e0e0e 100%);
 }
-#header h1 {
+header h1 {
     font-size: 1.1em;
     font-weight: bold;
     color: white;
@@ -138,7 +138,7 @@ body {
 
 #player {
     float: left;
-    width: 150px;
+    width: 550px;
     height: 36px;
 }
 #player .play, #player .pause, #player .disabled {
@@ -157,4 +157,95 @@ body {
 }
 #player .disabled {
     color: #666;
+}
+
+/* The side navigation menu */
+#sidenav {
+    display:none;
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+#sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+#sidenav a:hover {
+    color: #f1f1f1;
+}
+
+header #openbtn {
+    margin:5px 5px 0 10px;
+    display:block;
+    float:left;
+    color:#fff;
+    text-decoration: none;
+}
+
+/* Position and style the close button (top right corner) */
+header #closebtn {
+    margin:5px 5px 0 10px;
+    display: none;
+    float:left;
+    color:#fff;
+    text-decoration: none;
+}
+
+
+
+/* Slider Shit */
+
+
+.slider {
+    -webkit-appearance: none;
+    width: 75%;
+    border-radius: 5px;   
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; 
+    background: #000;
+}
+
+.slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #000;
+}
+
+/* Times */
+#times {
+    width:50px;
+}
+
+
+/** Volume Slider **/
+
+#volumeSlider {
+    width: 15%;
 }
