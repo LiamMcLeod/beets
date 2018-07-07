@@ -1,29 +1,28 @@
-
 ::-webkit-scrollbar {
     width: 2px;
     height: 2px;
-  }
-  
-  ::-webkit-scrollbar-button {
+}
+
+::-webkit-scrollbar-button {
     width: 0px;
     height: 0px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
+}
+
+::-webkit-scrollbar-thumb {
     background: #e1e1e1;
     border: 0px none #fff;
     border-radius: 50px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+::-webkit-scrollbar-thumb:hover {
     background: #fff;
-  }
-  
-  ::-webkit-scrollbar-thumb:active {
+}
+
+::-webkit-scrollbar-thumb:active {
     background: #666;
-  }
-   
- body {
+}
+
+body {
     font-family: Helvetica, Arial, sans-serif;
     overflow-x: hidden;
     background-color: #fafafa;
@@ -33,14 +32,16 @@ header {
     height: 50px;
     color: white;
 }
+
 a.navbar-brand.mr-2 {
     font-size: 1.1em;
     font-weight: bold;
     margin: 20px 0 0 1.35em;
 }
+
 a.navbar-brand.mr-2:hover {
     text-decoration: none;
-} 
+}
 
 .tab.tab-block {
     color: #5755d9;
@@ -49,81 +50,90 @@ a.navbar-brand.mr-2:hover {
 .tab.tab-block .active {
     background-color: #5755d9;
 }
+
 .tab .tab-item a.active {
-    color:#fff;
+    color: #fff;
 }
 
 #entities {
     width: 17em;
-
     position: fixed;
     top: 36px;
     left: 0;
     bottom: 0;
     margin: 0;
-
     z-index: 1;
-
     /* background: #fff; */
-
     /* shadowy border */
     /* box-shadow: 0 0 20px #666;
     -webkit-box-shadow: 0 0 20px #666;
     -moz-box-shadow: 0 0 20px #666; */
 }
+
 #queryForm {
     /* display: block; */
     /* text-align: center; */
     /* margin: 0.25em 0; */
 }
+
 #query {
     width: 91%;
-    height:24px;
+    height: 24px;
 }
-#entities ul {
-    width: 17em;
 
-    position: fixed;
+#search-view {
+    width: 100%;
+}
+
+#entities tbody {
     top: 50px;
     left: 0;
     bottom: 0;
     margin: 2.2em 0 0 0;
     padding: 0;
-
     overflow-y: auto;
     overflow-x: hidden;
 }
-#entities ul li {
+
+#entities tbody tr {
     list-style: none;
     padding: 4px 8px;
     margin: 0;
     cursor: default;
 }
-#entities ul li.selected {
+
+#entities tbody tr.selected {
     color: #5755d9;
 }
-#entities ul li .playing {
+
+#entities tbody tr .playing {
     margin-left: 5px;
     font-size: 0.9em;
 }
 
-
-#main-detail, #extra-detail {
+#main-detail,
+#extra-detail {
     position: fixed;
     left: 17em;
     margin: 1.0em 0 0 1.5em;
 }
+
 #main-detail {
     top: 36px;
     height: 98px;
 }
-#main-detail .artist, #main-detail .album, #main-detail .title {
+
+#main-detail .artist,
+#main-detail .album,
+#main-detail .title {
     display: block;
 }
+
 #main-detail .title {
     font-size: 1.3em;
     font-weight: bold;
 }
+
 #main-detail .albumtitle {
     font-style: italic;
 }
@@ -135,40 +145,47 @@ a.navbar-brand.mr-2:hover {
     bottom: 0;
     right: 0;
 }
+
 /*Fix for correctly displaying line breaks in lyrics*/
+
 #extra-detail .lyrics {
     white-space: pre-wrap;
 }
-#extra-detail dl dt, #extra-detail dl dd {
+
+#extra-detail dl dt,
+#extra-detail dl dd {
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
 #extra-detail dl dt {
     width: 10em;
     float: left;
     text-align: right;
     font-weight: bold;
     clear: both;
-}ƒƒ
-#extra-detail dl dd {
-    margin-left: 10.5em;
 }
 
+ƒƒ #extra-detail dl dd {
+    margin-left: 10.5em;
+}
 
 #player {
     position: fixed;
     bottom: 0;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
     height: 50px;
-
     /* shadowy border */
     box-shadow: 0 -0px 10px #999;
     -webkit-box-shadow: 0 -0px 20px #999;
     -moz-box-shadow: 0 -0px 20px #999;
 }
-#player .play, #player .pause, #player .disabled {
+
+#player .play,
+#player .pause,
+#player .disabled {
     -webkit-appearance: none;
     font-size: 1em;
     font-family: Helvetica, Arial, sans-serif;
@@ -181,17 +198,17 @@ a.navbar-brand.mr-2:hover {
     width: 36px;
     height: 36px;
 }
+
 #player .disabled {
     color: #666;
 }
 
 /* Slider Shit */
 
-
 .slider {
     -webkit-appearance: none;
     width: 100%;
-    border-radius: 5px;   
+    border-radius: 5px;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
@@ -204,7 +221,7 @@ a.navbar-brand.mr-2:hover {
     appearance: none;
     width: 10px;
     height: 10px;
-    border-radius: 50%; 
+    border-radius: 50%;
     background: #000;
 }
 
@@ -216,10 +233,10 @@ a.navbar-brand.mr-2:hover {
 }
 
 /* Times */
-#times {
-    width:50px;
-}
 
+#times {
+    width: 50px;
+}
 
 /** Volume Slider **/
 

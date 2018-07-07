@@ -226,11 +226,12 @@ $(function () {
 
     // Item views.
     var ItemEntryView = Backbone.View.extend({
-        tagName: "li",
+        tagName: "tr",
         template: _.template($('#item-entry-template').html()),
         events: {
             'click': 'select',
             'dblclick': 'play'
+            // on hover show main-view  
         },
         initialize: function () {
             this.playing = false;
@@ -312,7 +313,7 @@ $(function () {
         },
         selectItem: function (view) {
             // Mark row as selected.
-            $('#results li').removeClass("selected");
+            $('#results tr').removeClass("selected");
             $(view.el).addClass("selected");
 
             // Show main and extra detail.
