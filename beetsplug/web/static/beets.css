@@ -1,15 +1,56 @@
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #e1e1e1;
+    border: 0px none #fff;
+    border-radius: 50px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+  }
+  
+  ::-webkit-scrollbar-thumb:active {
+    background: #666;
+  }
+   
  body {
     font-family: Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+    background-color: #fafafa;
 }
 
 header {
     height: 50px;
     color: white;
 }
-header .column.col-6 a.navbar-brand.mr-2 {
+a.navbar-brand.mr-2 {
     font-size: 1.1em;
     font-weight: bold;
-    margin: 0 0 0 1.35em;
+    margin: 20px 0 0 1.35em;
+}
+a.navbar-brand.mr-2:hover {
+    text-decoration: none;
+} 
+
+.tab.tab-block {
+    color: #5755d9;
+}
+
+.tab.tab-block .active {
+    background-color: #5755d9;
+}
+.tab .tab-item a.active {
+    color:#fff;
 }
 
 #entities {
@@ -120,13 +161,14 @@ header .column.col-6 a.navbar-brand.mr-2 {
 #player {
     position: fixed;
     bottom: 0;
+    left:0;
     width: 100%;
     height: 50px;
 
     /* shadowy border */
-    box-shadow: 0 0 20px #999;
-    -webkit-box-shadow: 0 0 20px #999;
-    -moz-box-shadow: 0 0 20px #999;
+    box-shadow: 0 -0px 10px #999;
+    -webkit-box-shadow: 0 -0px 20px #999;
+    -moz-box-shadow: 0 -0px 20px #999;
 }
 #player .play, #player .pause, #player .disabled {
     -webkit-appearance: none;
@@ -135,7 +177,7 @@ header .column.col-6 a.navbar-brand.mr-2 {
     background: none;
     border: none;
     color: white;
-    padding: 5px;
+    /* padding: 5px; */
     margin: 0;
     text-align: center;
     width: 36px;
@@ -162,7 +204,7 @@ header .column.col-6 a.navbar-brand.mr-2 {
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
-/* The navigation menu links */
+/* The navigation menu links
 #sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -172,7 +214,7 @@ header .column.col-6 a.navbar-brand.mr-2 {
     transition: 0.3s;
 }
 
-/* When you mouse over the navigation links, change their color */
+When you mouse over the navigation links, change their color
 #sidenav a:hover {
     color: #f1f1f1;
 }
@@ -185,14 +227,14 @@ header #openbtn {
     text-decoration: none;
 }
 
-/* Position and style the close button (top right corner) */
+Position and style the close button (top right corner)
 header #closebtn {
     margin:5px 5px 0 10px;
     display: none;
     float:left;
     color:#fff;
     text-decoration: none;
-}
+} */
 
 
 
@@ -200,7 +242,6 @@ header #closebtn {
 
 
 .slider {
-    margin-top: 20px;
     -webkit-appearance: none;
     width: 100%;
     border-radius: 5px;   
