@@ -15,8 +15,8 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='normalize.css') }}" type="text/css">
     <link rel="stylesheet" href="../static/normalize.css" type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='skeleton.css') }}" type="text/css">
-    <link rel="stylesheet" href="../static/skeleton.css" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='spectre.css') }}" type="text/css">
+    <link rel="stylesheet" href="../static/spectre.css" type="text/css">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='beets.css') }}" type="text/css">
     <link rel="stylesheet" href="../static/beets.css" type="text/css">
@@ -35,34 +35,59 @@
 </head>
 
 <body>
-
-    <section id="sidenav">
-        <div id="entities">
-            <form id="queryForm">
-                <input type="search" id="query" placeholder="Query">
-            </form>
-            <ul id="results">
+    <header id="header" class="columns">
+        <div class="column col-2">
+            <a class="navbar-brand mr-2" href="#">Beets</a>
+        </div>
+        <div class="column col-6">
+            <ul class="tab tab-block">
+                <li class="tab-item">
+                    <a href="#" class="active">Library</a>
+                </li>
+                <li class="tab-item">
+                    <a href="#">Playing</a>
+                </li>
+                <li class="tab-item">
+                    <a href="#">Playlists</a>
+                </li>
             </ul>
         </div>
-    </section>
-
-    <header id="header">
-        <div id="title">
+        <div class="column col-4">
+            <div class="input-group input-inline">
+                <form id="queryForm">
+                    <input class="form-input" type="search" id="query" placeholder="Search">
+                </form>
+                <button class="btn btn-primary input-group-btn">Search</button>
+            </div>
+        </div>
+        <!-- <div id="title" class="hidden">
             <a href="javascript:void(0)" id="openbtn" onclick="openNav()">&#9776;</a>
             <a href="javascript:void(0)" id="closebtn" onclick="closeNav()">&times;</a>
-            <h1>beets</h1>
+        </div> -->
+    </header>
+
+    <!-- Media Player -->
+    <!-- add top margin of 20px-ish -->
+    <section id="player" class="container columns">
+        <audio></audio>
+
+        <div class="column col-2">
+            <a href="..." class="btn btn-link">Previous</a>
+            <a href="..." class="btn btn-link">Play</a>
+            <a href="..." class="btn btn-link">Pause</a>
+            <a href="..." class="btn btn-link">Next</a>
         </div>
-        <div id="player">
-            <audio></audio>
 
-            <button class="disabled">&#9654;</button>
-            <button class="play">&#9654;</button>
-            <button class="pause" style="letter-spacing: 1px;">&#10073;&#10073;</button>
+        <!-- <button class="disabled">&#9654;</button>
+        <button class="play">&#9654;</button>
+        <button class="pause" style="letter-spacing: 1px;">&#10073;&#10073;</button> -->
 
+        <div class="column col-6">
             <span id=seek>
                 <input type="range" value="0" step="any" class="slider" id="seekSlider">
             </span>
-
+        </div>
+        <div class="column col-1 text-center">
             <span id="times">
                 <span class="currentTime">
                 </span>
@@ -70,20 +95,37 @@
                 <span class="totalTime">
                 </span>
             </span>
+        </div>
 
+        <div class="column col-2">
             <span id=volume>
                 <input type="range" min="0" max="1" value="1" step=".05" class="slider" id="volumeSlider">
             </span>
         </div>
-    </header>
+    </section>
 
+    <!-- Library View -->
     <main>
+
+    </main>
+
+    <!-- Now Playing -->
+    <section>
         <div id="main-detail">
         </div>
 
         <div id="extra-detail">
         </div>
-    </main>
+    </section>
+
+    <!-- Search View -->
+    <section id="sidenav">
+        <div id="entities">
+            <ul id="results">
+            </ul>
+        </div>
+    </section>
+
 
     <!-- Templates. -->
     <script type="text/template" id="item-entry-template">
