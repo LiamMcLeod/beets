@@ -32,10 +32,10 @@ $.fn.player = function (debug) {
     sliderVolume.addEventListener('change', volumeChange, false);
 
     //Seek Slider
-    var sliderSeek= player.querySelector('#seekSlider')
+    var sliderSeek = player.querySelector('#seekSlider')
     sliderSeek.addEventListener('input', sliderSeeking, false);
     sliderSeek.addEventListener('change', sliderReleased, false);
-    
+
     // Button events.
     playBtn.click(function () {
         audio.play();
@@ -45,17 +45,32 @@ $.fn.player = function (debug) {
     });
 
     // Slider Events
-    function volumeChange(){
+    function volumeChange() {
         audio.volume = sliderVolume.value;
     }
 
-    function sliderSeeking(){
+    function updateSlider() {
+        sliderSeek.value = audio.currentTime
     }
 
-    function sliderReleased(){
-        // https://www.w3schools.com/tags/ref_av_dom.asp
-        // seekable()
-        // audio.;
+    function resetSlider() {
+        sliderSeek.value = 0;
+    }
+
+    function sliderSeeking() {
+        //Variable to stop instant paly
+        audioIsPaused = audio.paused;
+        // Pause while it evaluates the times
+        audio.pause();
+        // audio time to slider time
+        audio.currentTime = sliderSeek.value
+    }
+
+    function sliderReleased() {
+        // Start playing again based on if it was already playing
+        if (!audioIsPaused) {
+            audio.play();
+        }
     }
 
     // Utilities.
@@ -128,6 +143,7 @@ $.fn.player = function (debug) {
         ended: function () {
             dbg('ended');
             showState();
+            // resetSlider();
         },
         progress: function () {
             dbg('progress ' + audio.buffered);
@@ -135,6 +151,7 @@ $.fn.player = function (debug) {
         timeupdate: function () {
             dbg('timeupdate ' + audio.currentTime);
             showTimes();
+            updateSlider();
         },
         durationchange: function () {
             dbg('durationchange ' + audio.duration);
@@ -163,6 +180,7 @@ $.fn.disableSelection = function () {
         });
 };
 
+//API Routing and stuff here
 $(function () {
 
     // Routes.
@@ -357,9 +375,9 @@ function openNav() {
 
 // Close/hide the sidenav
 function closeNav() {
-   $("#sidenav").hide();
-   $("#closebtn").hide();
-   $("#openbtn").show();
+    $("#sidenav").hide();
+    $("#closebtn").hide();
+    $("#openbtn").show();
 }
 
 // setting slider value
