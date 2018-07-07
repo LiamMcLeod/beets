@@ -18,8 +18,13 @@ $.fn.player = function (debug) {
     var audio = $('audio', this).get(0);
 
     // Control elements that may be present, identified by class.
-    var playBtn = $('.play', this);
-    var pauseBtn = $('.pause', this);
+    var playBtn = $('#btnPlay', this);
+    var pauseBtn = $('#btnPause', this);
+    // Extra buttons 
+    var previousBtn = $('#btnPrevious', this);
+    var nextBtn = $('#btnNext', this);
+
+
     var disabledInd = $('.disabled', this);
     var timesEl = $('.times', this);
     var curTimeEl = $('.currentTime', this);
@@ -112,7 +117,7 @@ $.fn.player = function (debug) {
         } else {
             playBtn.hide();
             pauseBtn.show();
-            disabledInd.hide();
+            // disabledInd.hide();
             timesEl.show();
         }
     }
