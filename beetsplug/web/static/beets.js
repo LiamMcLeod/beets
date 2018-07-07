@@ -66,6 +66,13 @@ $.fn.player = function (debug) {
         audio.currentTime = sliderSeek.value
     }
 
+    // TODOS
+    // Maybe Migrate to Vue
+    //? References
+    // https://www.w3schools.com/tags/ref_eventattributes.asp
+    // https://www.w3schools.com/tags/ref_av_dom.asp
+    // https://www.w3schools.com/html/html5_audio.asp
+
     function sliderReleased() {
         // Start playing again based on if it was already playing
         if (!audioIsPaused) {
@@ -356,6 +363,7 @@ $(function () {
     Backbone.history.start({
         pushState: false
     });
+    
 
     // Disable selection on UI elements.
     $('#entities ul').disableSelection();
@@ -379,8 +387,3 @@ function closeNav() {
     $("#closebtn").hide();
     $("#openbtn").show();
 }
-
-// setting slider value
-
-var slider = $("#songtimer");
-slider.value = this.currentTime;

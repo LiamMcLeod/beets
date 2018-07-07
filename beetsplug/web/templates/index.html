@@ -35,36 +35,60 @@
 </head>
 
 <body>
-    <header id="header" class="columns">
-        <div class="column col-2 text-center">
-            <a class="navbar-brand mr-2" href="#">Beets</a>
-        </div>
-        <div class="column col-6">
-            <ul class="tab tab-block">
-                <li class="tab-item">
-                    <a href="#" class="active">Library</a>
-                </li>
-                <li class="tab-item">
-                    <a href="#">Playing</a>
-                </li>
-                <li class="tab-item">
-                    <a href="#">Playlists</a>
-                </li>
-            </ul>
-        </div>
-        <div class="column col-4">
-            <div class="input-group input-inline">
-                <form id="queryForm">
-                    <input class="form-input" type="search" id="query" placeholder="Search">
-                </form>
-                <button class="btn btn-primary input-group-btn">Search</button>
+    <div class="container">
+        <header id="header" class="columns">
+            <div class="column col-2 text-center">
+                <a class="navbar-brand mr-2" href="#">Beets</a>
             </div>
-        </div>
-        <!-- <div id="title" class="hidden">
+            <div class="column col-6">
+                <ul class="tab tab-block">
+                    <li class="tab-item">
+                        <a href="#" class="active">Library</a>
+                    </li>
+                    <li class="tab-item">
+                        <a href="#">Playing</a>
+                    </li>
+                    <li class="tab-item">
+                        <a href="#">Search</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="column col-4">
+                <div class="input-group input-inline">
+                    <form id="queryForm">
+                        <input class="form-input" type="search" id="query" placeholder="Search">
+                    </form>
+                    <button class="btn btn-primary input-group-btn">Search</button>
+                </div>
+            </div>
+            <!-- <div id="title" class="hidden">
             <a href="javascript:void(0)" id="openbtn" onclick="openNav()">&#9776;</a>
             <a href="javascript:void(0)" id="closebtn" onclick="closeNav()">&times;</a>
         </div> -->
-    </header>
+        </header>
+
+        <!-- Library View -->
+        <main>
+
+        </main>
+
+        <!-- Now Playing -->
+        <section>
+            <div id="main-detail">
+            </div>
+
+            <div id="extra-detail">
+            </div>
+        </section>
+
+        <!-- Search View -->
+        <section id="results">
+            <div id="entities">
+                <ul id="results">
+                </ul>
+            </div>
+        </section>
+    </div>
 
     <!-- Media Player -->
     <!-- add top margin of 20px-ish -->
@@ -72,10 +96,10 @@
         <audio></audio>
 
         <div class="column col-2 text-center">
-            <a href="..." class="btn btn-link">Previous</a>
-            <a href="..." class="btn btn-link">Play</a>
-            <a href="..." class="btn btn-link">Pause</a>
-            <a href="..." class="btn btn-link">Next</a>
+            <a href="javascript:void(0)" class="btn btn-link">Previous</a>
+            <a href="javascript:void(0)" class="btn btn-link">Play</a>
+            <a href="javascript:void(0)" class="btn btn-link">Pause</a>
+            <a href="javascript:void(0)" class="btn btn-link">Next</a>
         </div>
 
         <!-- <button class="disabled">&#9654;</button>
@@ -104,29 +128,6 @@
         </div>
     </section>
 
-    <!-- Library View -->
-    <main>
-
-    </main>
-
-    <!-- Now Playing -->
-    <section>
-        <div id="main-detail">
-        </div>
-
-        <div id="extra-detail">
-        </div>
-    </section>
-
-    <!-- Search View -->
-    <section id="sidenav">
-        <div id="entities">
-            <ul id="results">
-            </ul>
-        </div>
-    </section>
-
-
     <!-- Templates. -->
     <script type="text/template" id="item-entry-template">
         <%= title %>
@@ -151,6 +152,7 @@
 
 
     </script>
+    
     <script type="text/template" id="item-extra-detail-template">
         <dl>
             <dt>Track</dt>
