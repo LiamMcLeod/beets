@@ -164,6 +164,7 @@ a.navbar-brand.mr-2:hover {
     left: 0;
     right: 0;
     height: 50px;
+    background: #fff;
     /* shadowy border */
     box-shadow: 0 -0px 10px #999;
     -webkit-box-shadow: 0 -0px 20px #999;

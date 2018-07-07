@@ -290,6 +290,10 @@ $(function () {
         querySubmit: function (ev) {
             ev.preventDefault();
             router.navigate('item/query/' + encodeURIComponent($('#query').val()), true);
+
+            $('#library-tab').removeClass('active');
+            $('#search-tab').addClass('active');
+            $('#search-view').removeAttr('hidden')
         },
         initialize: function () {
             this.playingItem = null;
@@ -317,6 +321,8 @@ $(function () {
             // Mark row as selected.
             $('#results tr').removeClass("selected");
             $(view.el).addClass("selected");
+            // move this to a button.
+            $('#main-detail-modal').addClass('active');
 
             // Show main and extra detail.
             var mainDetailView = new ItemMainDetailView({

@@ -30,8 +30,6 @@
     <script src="../static/backbone.js"></script>
     <script src="{{ url_for('static', filename='beets.js') }}"></script>
     <script src="../static/beets.js"></script>
-    <script>
-    </script>
 </head>
 
 <body>
@@ -43,13 +41,13 @@
             <div class="column col-6">
                 <ul class="tab tab-block">
                     <li class="tab-item">
-                        <a href="#" class="active">Library</a>
+                        <a href="#" id="library-tab" class="active">Library</a>
                     </li>
                     <li class="tab-item">
-                        <a href="#">Playing</a>
+                        <a href="#" id="playing-tab">Playing</a>
                     </li>
                     <li class="tab-item">
-                        <a href="#">Search</a>
+                        <a href="#" id="search-tab">Search</a>
                     </li>
                 </ul>
             </div>
@@ -73,31 +71,50 @@
         </main>
 
         <!-- Now Playing -->
-        <section class="popover popover-right active">
+        <!-- <section class="popover popover-right active">
             <div class="popover-container">
                 <div class="card">
-                    <div class="card-header" div id="main-detail">
-                        <!-- Templating engine will auto fill -->
+                    <div id="main-detail" class="card-header">
+            
                     </div>
-                    <div class="card-body" id="extra-detail">
-                        <!-- Templating engine will auto fill -->
+                    <div id="extra-detail" class="card-body">
+             
                     </div>
                     <div class="card-footer">
+                        <button class="btn">&8690;</button>
+                        <button class="btn btn-primary">Play</button>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Modal for Extra info -->
+        <section>
+            <div class="modal" id="main-detail-modal">
+                <a href="#close" class="modal-overlay" aria-label="Close"></a>
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <a href="#close" class="btn btn-clear float-right" aria-label="Close"></a>
+                        <div id="main-detail" class="modal-title h5">
+
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div id="extra-detail" class="content">
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn">&8690;</button>
                         <button class="btn btn-primary">Play</button>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- <section>
-            <div id="main-detail">
-            </div>
-
-            <div id="extra-detail">
-            </div>
-        </section> -->
 
         <!-- Search View -->
-        <section id="search-view">
+        <section hidden id="search-view">
             <div id="entities" class="container">
                 <table class="table table-striped table-hover">
                     <thead>
@@ -158,12 +175,18 @@
     <!-- Templates. -->
     <!-- Search Table Template -->
     <script type="text/template" id="item-entry-template">
-        <td><span class="playing">&#9654;</span></td>
+        <td>
+            <span class="playing">&#9654;</span>
+        </td>
         <td>
             <%= title %>
         </td>
-        <td><%= artist %></td>
-        <td><%= album %></td>
+        <td>
+            <%= artist %>
+        </td>
+        <td>
+            <%= album %>
+        </td>
     </script>
     <!-- Main Detail Template -->
     <script type="text/template" id="item-main-detail-template">
