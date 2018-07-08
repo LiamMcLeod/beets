@@ -100,14 +100,14 @@ a.navbar-brand.mr-2:hover {
 
 #main-detail,
 #extra-detail {
-    position: fixed;
+    /* position: fixed;
     left: 17em;
-    margin: 1.0em 0 0 1.5em;
+    margin: 1.0em 0 0 1.5em; */
 }
 
 #main-detail {
-    top: 36px;
-    height: 98px;
+    /* top: 36px;
+    height: 98px; */
 }
 
 #main-detail .artist,
@@ -126,11 +126,11 @@ a.navbar-brand.mr-2:hover {
 }
 
 #extra-detail {
-    overflow-x: hidden;
+    /* overflow-x: hidden;
     overflow-y: auto;
     top: 134px;
     bottom: 0;
-    right: 0;
+    right: 0; */
 }
 
 /*Fix for correctly displaying line breaks in lyrics*/

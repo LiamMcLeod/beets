@@ -201,7 +201,7 @@ $(function () {
     var BeetsRouter = Backbone.Router.extend({
         routes: {
             "item/query/:query": "itemQuery",
-            "": "itemQuery"
+            "": "itemQuery",
         },
         itemQuery: function (query) {
             if (query) {
@@ -415,6 +415,7 @@ $(function () {
     var app = new AppView();
 
     // App setup.
+    // {pushState: true} maybe change to true
     Backbone.history.start({
         pushState: false
     });
