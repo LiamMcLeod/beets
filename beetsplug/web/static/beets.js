@@ -416,9 +416,8 @@ $(function () {
     var app = new AppView();
 
     // App setup.
-    // {pushState: true} maybe change to true
     Backbone.history.start({
-        pushState: true
+        pushState: false
     });
 
 
