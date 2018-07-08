@@ -250,7 +250,7 @@ $(function () {
         events: {
             'click': 'select',
             'dblclick': 'play',
-            'click .info': 'showModal',
+            'click .info': 'toggleModal',
         },
         initialize: function () {
             this.playing = false;
@@ -273,8 +273,8 @@ $(function () {
             else
                 this.$('.playing').hide();
         },
-        showModal: function (){
-            app.showMainDetailView();
+        toggleModal: function (){
+            app.toggleMainDetailView();
         }
     });
     //Holds Title, Artist, Album etc.
@@ -283,6 +283,8 @@ $(function () {
         template: _.template($('#item-main-detail-template').html()),
         events: {
             'click .play': 'play',
+            'click .close': 'close',
+            'click #main-detail-modal': 'close'
         },
         render: function () {
             $(this.el).html(this.template(this.model.toJSON()));
@@ -290,6 +292,9 @@ $(function () {
         },
         play: function () {
             app.playItem(this.model);
+        },
+        close: function(){
+            app.toggleMainDetailView();
         }
     });
     // Holds Track no., Format, MusicBrainz link, Lyrics, Comments etc.
@@ -362,8 +367,14 @@ $(function () {
             });
             $('#extra-detail').empty().append(extraDetailView.render().el);
         },
-        showMainDetailView: function () {
-            $('#main-detail-modal').addClass('active');
+        toggleMainDetailView: function () {
+            var modal = $('#main-detail-modal');
+            if (modal.hasClass('active')){
+                modal.removeClass('active');
+            } else {
+                modal.addClass('active');
+            }
+            // $('#main-detail-modal').addClass('active');
         },
         playItem: function (item) {
             var url = 'item/' + item.get('id') + '/file';
