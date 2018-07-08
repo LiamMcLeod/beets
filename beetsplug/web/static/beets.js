@@ -471,14 +471,20 @@ $(function () {
 
 // Open the sidenav
 function openNav() {
-    $("#sidenav").show();
-    $("#closebtn").show();
-    $("#openbtn").hide();
+    $('#more-panel').css({'height': '100%'});
+    $('#moreButton').addClass('hidden');
+    $('#nomoreButton').removeClass('hidden');
+    // $("#bottom-more-panel").show();
+    // $("#nomore-button").show();
+    // $("#more-button").hide();
 }
 
-// Close/hide the sidenav
+// Close/hide the botnav
 function closeNav() {
-    $("#sidenav").hide();
-    $("#closebtn").hide();
-    $("#openbtn").show();
+    $('#more-panel').css({'height': '0'});
+    $('#moreButton').removeClass('hidden');
+    $('#nomoreButton').addClass('hidden');
+    // $("#bottom-more-panel").hide();
+    // $("#nomore-button").hide();
+    // $("#more-button").show();
 }

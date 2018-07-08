@@ -63,10 +63,6 @@
                     <button id="searchButton" class="btn btn-primary input-group-btn">Search</button>
                 </div>
             </div>
-            <!-- <div id="title" class="hidden">
-            <a href="javascript:void(0)" id="openbtn" onclick="openNav()">&#9776;</a>
-            <a href="javascript:void(0)" id="closebtn" onclick="closeNav()">&times;</a>
-        </div> -->
         </header>
 
         <!-- Library View -->
@@ -141,47 +137,57 @@
 
     <!-- Media Player Fixed to Bottom-->
     <!-- add top margin of 20px-ish -->
+    <div id="more-panel" class="container">
+        <a href="javascript:void(0)" class="close-more-button" onclick="closeNav()">&times;</a>
+        
+    </div>
+
     <section id="player" class="container">
         <!-- &#8963; -->
-        <div class="container more-button-container">
-            <button id="more-button" class="align-center moreButton btn btn-primary btn-action circle"><i class="icon icon-arrow-up"></i></button>
+        <div class="container">
+            <button onclick="openNav()" id="moreButton" class="align-center btn btn-primary btn-action circle more-button">
+                <i class="icon icon-arrow-up"></i>
+            </button>
+            <button onclick="closeNav()" id="nomoreButton" class="align-center btn btn-primary btn-action circle more-button hidden">
+                <i class="icon icon-arrow-down"></i>
+            </button>
         </div>
         <audio></audio>
         <div class="columns">
-        <div class="column col-2 text-center">
-            <!-- todo  -->
-            <a href="#" class="btn btn-link" id="btnPrevious">Previous</a>
-            <a href="#" class="btn btn-link" id="btnPlay">Play</a>
-            <a href="#" class="btn btn-link" id="btnPause">Pause</a>
-            <!-- todo -->
-            <a href="#" class="btn btn-link" id="btnNext">Next</a>
-        </div>
+            <div class="column col-2 text-center">
+                <!-- todo  -->
+                <a href="#" class="btn btn-link" id="btnPrevious">Previous</a>
+                <a href="#" class="btn btn-link" id="btnPlay">Play</a>
+                <a href="#" class="btn btn-link" id="btnPause">Pause</a>
+                <!-- todo -->
+                <a href="#" class="btn btn-link" id="btnNext">Next</a>
+            </div>
 
-        <!-- <button class="disabled">&#9654;</button>
+            <!-- <button class="disabled">&#9654;</button>
         <button class="play">&#9654;</button>
         <button class="pause" style="letter-spacing: 1px;">&#10073;&#10073;</button> -->
 
-        <div class="column col-6">
-            <span id=seek>
-                <input type="range" value="0" step="any" class="slider" id="seekSlider">
-            </span>
-        </div>
-        <div class="column col-2 text-center">
-            <span id="times">
-                <span class="currentTime">
+            <div class="column col-6">
+                <span id=seek>
+                    <input type="range" value="0" step="any" class="slider" id="seekSlider">
                 </span>
-                <span>/</span>
-                <span class="totalTime">
+            </div>
+            <div class="column col-2 text-center">
+                <span id="times">
+                    <span class="currentTime">
+                    </span>
+                    <span>/</span>
+                    <span class="totalTime">
+                    </span>
                 </span>
-            </span>
-        </div>
+            </div>
 
-        <div class="column col-2">
-            <span id=volume>
-                <input type="range" min="0" max="1" value="1" step=".05" class="slider" id="volumeSlider">
-            </span>
+            <div class="column col-2">
+                <span id=volume>
+                    <input type="range" min="0" max="1" value="1" step=".05" class="slider" id="volumeSlider">
+                </span>
+            </div>
         </div>
-    </div>
     </section>
 
     <!-- Templates. -->
@@ -277,4 +283,5 @@
         </dl>
     </script>
 </body>
+
 </html>
