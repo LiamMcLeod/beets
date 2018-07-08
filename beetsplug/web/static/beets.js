@@ -200,13 +200,14 @@ $(function () {
     // Routes.
     var BeetsRouter = Backbone.Router.extend({
         routes: {
+            "search/:query": "itemQuery",
             "item/query/:query": "itemQuery",
             "": "itemQuery",
         },
         itemQuery: function (query) {
             if (query) {
                 var queryURL = query.split(/\s+/).map(encodeURIComponent).join('/');
-                $.getJSON('item/query/' + queryURL, function (data) {
+                $.getJSON('/item/query/' + queryURL, function (data) {
                     var models = _.map(
                         data['results'],
                         function (d) {
@@ -214,13 +215,14 @@ $(function () {
                         }
                     );
                     var results = new Items(models);
+                    // console.log(results);
                     app.showItems(results);
                 });
             } else {
                 // Library Request
                 /** Very janky method but fuck it it works
                  *  as /item returns a different model to expected */
-                $.getJSON('item/query/%20', function (data) {
+                $.getJSON('/item/query/%20', function (data) {
                     var models = _.map(
                         data['results'],
                         function (d) {
@@ -324,17 +326,14 @@ $(function () {
             // console.log(ev);
             // console.log(typeof(ev.currentTarget));
             if (ev.currentTarget.id=='library-tab'){
-                // console.log(Backbone);
-                // todo replace navigate with code that returns to root
-                router.navigate('');
-                // Backbone.history.navigate('');
 
+                router.navigate('', true);
 
                 $('#search-tab').removeClass('active');
                 $('#library-tab').addClass('active');
                 // $('#search-view').removeAttr('hidden')    
             } else {
-                router.navigate('item/query/' + encodeURIComponent($('#query').val()), true);
+                router.navigate('search/' + encodeURIComponent($('#query').val()), true);
 
                 $('#library-tab').removeClass('active');
                 $('#search-tab').addClass('active');
@@ -435,8 +434,8 @@ $(function () {
 
     // App setup.
     Backbone.history.start({
-        // root: '',
-        pushState: false
+        root: '/',
+        pushState: true
     });
 
 
