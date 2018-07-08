@@ -201,19 +201,36 @@ $(function () {
     var BeetsRouter = Backbone.Router.extend({
         routes: {
             "item/query/:query": "itemQuery",
+            "": "itemQuery"
         },
         itemQuery: function (query) {
-            var queryURL = query.split(/\s+/).map(encodeURIComponent).join('/');
-            $.getJSON('item/query/' + queryURL, function (data) {
-                var models = _.map(
-                    data['results'],
-                    function (d) {
-                        return new Item(d);
-                    }
-                );
-                var results = new Items(models);
-                app.showItems(results);
-            });
+            if (query) {
+                var queryURL = query.split(/\s+/).map(encodeURIComponent).join('/');
+                $.getJSON('item/query/' + queryURL, function (data) {
+                    var models = _.map(
+                        data['results'],
+                        function (d) {
+                            return new Item(d);
+                        }
+                    );
+                    var results = new Items(models);
+                    app.showItems(results);
+                });
+            } else {
+                // Library Request
+                /** Very janky method but fuck it it works
+                 *  as /item returns a different model to expected */
+                $.getJSON('item/query/%20', function (data) {
+                    var models = _.map(
+                        data['results'],
+                        function (d) {
+                            return new Item(d);
+                        });
+                    var results = new Items(models);
+                    results.query = false;
+                    app.showItems(results);
+                });
+            }
         }
     });
     var router = new BeetsRouter();
@@ -282,6 +299,7 @@ $(function () {
         }
     });
     // Main app view.
+    // todo events for tabs
     var AppView = Backbone.View.extend({
         el: $('body'),
         events: {
@@ -315,6 +333,7 @@ $(function () {
                 });
                 item.entryView = view;
                 $('#results').append(view.render().el);
+                $('#search-view').removeAttr('hidden');
             });
         },
         selectItem: function (view) {
@@ -322,7 +341,8 @@ $(function () {
             $('#results tr').removeClass("selected");
             $(view.el).addClass("selected");
             // move this to a button.
-            $('#main-detail-modal').addClass('active');
+            //Modal activate
+            // $('#main-detail-modal').addClass('active');
 
             // Show main and extra detail.
             var mainDetailView = new ItemMainDetailView({
@@ -377,7 +397,7 @@ $(function () {
     Backbone.history.start({
         pushState: false
     });
-    
+
 
     // Disable selection on UI elements.
     $('#entities ul').disableSelection();
