@@ -199,30 +199,31 @@ a.navbar-brand.mr-2:hover {
 /* Slider Shit */
 
 .slider {
-    -webkit-appearance: none;
+    /* -webkit-appearance: none;
     width: 100%;
     border-radius: 5px;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
-    transition: opacity .2s;
+    transition: opacity .2s; */
+    /* height:10px; */
 }
 
 .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
+    /* -webkit-appearance: none;
     appearance: none;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #000;
+    background: #000; */
 }
 
 .slider::-moz-range-thumb {
-    width: 10px;
+    /* width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #000;
+    background: #000; */
 }
 
 /* Times */
@@ -266,4 +267,19 @@ a.navbar-brand.mr-2:hover {
 
 .m-top-15 {
     margin-top: 15px;
+}
+
+.m-top-10 {
+    margin-top: 10px;
+}
+
+#more-button {
+    /* color:#111; */
+    margin-top: -10px;
+    height: 20px;
+    width:  20px;
+}
+
+#more-button i {
+    margin-top: -5px;
 }
