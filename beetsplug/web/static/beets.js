@@ -284,7 +284,7 @@ $(function () {
         events: {
             'click .play': 'play',
             'click .close': 'close',
-            'click #main-detail-modal': 'close'
+            'click .modal-overlay': 'close'
         },
         render: function () {
             $(this.el).html(this.template(this.model.toJSON()));
@@ -294,6 +294,7 @@ $(function () {
             app.playItem(this.model);
         },
         close: function () {
+            //todo fix playback stops when modal is closed
             app.toggleMainDetailView();
         }
     });
@@ -313,14 +314,32 @@ $(function () {
         el: $('body'),
         events: {
             'submit #queryForm': 'querySubmit',
+            'click #library-tab': 'querySubmit',
+            'click #search-tab': 'querySubmit',
+            'click #searchButton': 'querySubmit',
+            'click #playing-tab': 'toggleMainDetailView'
         },
         querySubmit: function (ev) {
             ev.preventDefault();
-            router.navigate('item/query/' + encodeURIComponent($('#query').val()), true);
+            // console.log(ev);
+            // console.log(typeof(ev.currentTarget));
+            if (ev.currentTarget.id=='library-tab'){
+                // console.log(Backbone);
+                // todo replace navigate with code that returns to root
+                router.navigate('');
+                // Backbone.history.navigate('');
 
-            $('#library-tab').removeClass('active');
-            $('#search-tab').addClass('active');
-            $('#search-view').removeAttr('hidden')
+
+                $('#search-tab').removeClass('active');
+                $('#library-tab').addClass('active');
+                // $('#search-view').removeAttr('hidden')    
+            } else {
+                router.navigate('item/query/' + encodeURIComponent($('#query').val()), true);
+
+                $('#library-tab').removeClass('active');
+                $('#search-tab').addClass('active');
+                $('#search-view').removeAttr('hidden')
+            }
         },
         initialize: function () {
             this.playingItem = null;
@@ -388,7 +407,6 @@ $(function () {
             item.entryView.setPlaying(true);
             this.playingItem = item;
         },
-
         audioPause: function () {
             this.playingItem.entryView.setPlaying(false);
         },
@@ -417,6 +435,7 @@ $(function () {
 
     // App setup.
     Backbone.history.start({
+        // root: '',
         pushState: false
     });
 
