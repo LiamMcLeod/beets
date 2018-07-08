@@ -64,9 +64,13 @@ a.navbar-brand.mr-2:hover {
 }
 
 /* #queryForm { */
-    /* display: block; */
-    /* text-align: center; */
-    /* margin: 0.25em 0; */
+
+/* display: block; */
+
+/* text-align: center; */
+
+/* margin: 0.25em 0; */
+
 /* } */
 
 #query {
@@ -101,8 +105,8 @@ a.navbar-brand.mr-2:hover {
 #main-detail,
 #extra-detail {
     /* position: fixed;
-    left: 17em;
-    margin: 1.0em 0 0 1.5em; */
+    left: 17em; */
+    margin: 1.0em 0 0 1.5em;
 }
 
 #main-detail {
@@ -114,6 +118,7 @@ a.navbar-brand.mr-2:hover {
 #main-detail .album,
 #main-detail .title {
     display: block;
+    text-align: center;
 }
 
 #main-detail .title {
@@ -233,5 +238,32 @@ a.navbar-brand.mr-2:hover {
 }
 
 .hidden {
-    display:none;
+    display: none;
+}
+
+.fleft {
+    float: left;
+}
+
+.fright {
+    float: right;
+}
+
+.no-decoration {
+    text-decoration: none;
+}
+
+.no-decoration a:hover {
+    text-decoration: none;
+}
+
+.align-center {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.m-top-15 {
+    margin-top: 15px;
 }

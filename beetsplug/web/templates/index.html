@@ -91,23 +91,22 @@
         <!-- Modal for Extra info -->
         <section>
             <div class="modal" id="main-detail-modal">
-                <a href="#close" class="modal-overlay" aria-label="Close"></a>
+                <a href="" class="modal-overlay" aria-label="Close"></a>
                 <div class="modal-container">
                     <div class="modal-header">
-                        <a href="#close" class="close btn btn-clear float-right" aria-label="Close"></a>
+                        <!-- <a href="#close" class="close btn btn-clear float-right" aria-label="Close"></a> -->
                         <div id="main-detail" class="modal-title h5">
 
                         </div>
                     </div>
                     <div class="modal-body">
-                        <div id="extra-detail" class="content">
-
-
+                        <div id="extra-detail" class="content text-center">
+                            <!-- fix text here and remove center -->
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn">Close</button>
-                        <button class="btn btn-primary">Play</button>
+                        <!-- <button class="btn">Close</button> -->
+                        <!-- <button class="btn btn-primary">Play</button> -->
                     </div>
                 </div>
             </div>
@@ -195,7 +194,7 @@
 
     <!-- Main Detail Template -->
     <script type="text/template" id="item-main-detail-template">
-        <button class="close">&#9747;</button>
+        <a href="#" class="close fright no-decoration">&#9932;</a>
         <span class="artist">
             <%= artist %>
         </span>
@@ -209,54 +208,55 @@
         <span class="title">
             <%= title %>
         </span>
-
-        <button class="play">&#9654;</button>
+        <div class="container align-center">
+            <button class="btn btn-primary m-top-15">Play</button>
+        </div>
     </script>
 
     <!-- Extra Detail Template -->
     <script type="text/template" id="item-extra-detail-template">
         <dl>
-            <dt>Track</dt>
+            <dt>Track:</dt>
             <dd>
                 <%= track %>/
                     <%= tracktotal %>
             </dd>
             <% if (disc) { %>
-                <dt>Disc</dt>
+                <dt>Disc:</dt>
                 <dd>
                     <%= disc %>/
                         <%= disctotal %>
                 </dd>
                 <% } %>
-                    <dt>Length</dt>
+                    <dt>Length:</dt>
                     <dd>
                         <%= timeFormat(length) %>
                     </dd>
-                    <dt>Format</dt>
+                    <dt>Format:</dt>
                     <dd>
                         <%= format %>
                     </dd>
-                    <dt>Bitrate</dt>
+                    <dt>Bitrate:</dt>
                     <dd>
                         <%= Math.round(bitrate/1000) %> kbps</dd>
                     <% if (mb_trackid) { %>
-                        <dt>MusicBrainz entry</dt>
+                        <dt>MusicBrainz entry:</dt>
                         <dd>
                             <a target="_blank" href="http://musicbrainz.org/recording/<%= mb_trackid %>">view</a>
                         </dd>
                         <% } %>
-                            <dt>File</dt>
+                            <dt>File:</dt>
                             <dd>
                                 <a target="_blank" class="download" href="item/<%= id %>/file">download</a>
                             </dd>
                             <% if (lyrics) { %>
-                                <dt>Lyrics</dt>
+                                <dt>Lyrics:</dt>
                                 <dd class="lyrics">
                                     <%= lyrics %>
                                 </dd>
                                 <% } %>
                                     <% if (comments) { %>
-                                        <dt>Comments</dt>
+                                        <dt>Comments:</dt>
                                         <dd>
                                             <%= comments %>
                                         </dd>
@@ -264,4 +264,5 @@
         </dl>
     </script>
 </body>
+
 </html>

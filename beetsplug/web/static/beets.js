@@ -273,7 +273,7 @@ $(function () {
             else
                 this.$('.playing').hide();
         },
-        toggleModal: function (){
+        toggleModal: function () {
             app.toggleMainDetailView();
         }
     });
@@ -293,12 +293,13 @@ $(function () {
         play: function () {
             app.playItem(this.model);
         },
-        close: function(){
+        close: function () {
             app.toggleMainDetailView();
         }
     });
     // Holds Track no., Format, MusicBrainz link, Lyrics, Comments etc.
     var ItemExtraDetailView = Backbone.View.extend({
+        // do something about this mess of text formatting
         tagName: "div",
         template: _.template($('#item-extra-detail-template').html()),
         render: function () {
@@ -369,7 +370,7 @@ $(function () {
         },
         toggleMainDetailView: function () {
             var modal = $('#main-detail-modal');
-            if (modal.hasClass('active')){
+            if (modal.hasClass('active')) {
                 modal.removeClass('active');
             } else {
                 modal.addClass('active');
@@ -417,7 +418,7 @@ $(function () {
     // App setup.
     // {pushState: true} maybe change to true
     Backbone.history.start({
-        pushState: false
+        pushState: true
     });
 
 
