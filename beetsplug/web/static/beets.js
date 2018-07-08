@@ -375,11 +375,11 @@ $(function () {
             } else {
                 modal.addClass('active');
             }
-            // $('#main-detail-modal').addClass('active');
         },
         playItem: function (item) {
             var url = 'item/' + item.get('id') + '/file';
             $('#player audio').attr('src', url);
+            // Controls playback
             $('#player audio').get(0).play();
 
             if (this.playingItem != null) {
