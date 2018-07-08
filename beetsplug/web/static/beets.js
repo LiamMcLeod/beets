@@ -386,7 +386,10 @@ $(function () {
             });
             $('#extra-detail').empty().append(extraDetailView.render().el);
         },
-        toggleMainDetailView: function () {
+        toggleMainDetailView: function (e) {
+            if (e){
+                e.preventDefault();
+            }
             var modal = $('#main-detail-modal');
             if (modal.hasClass('active')) {
                 modal.removeClass('active');
