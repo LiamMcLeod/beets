@@ -231,3 +231,7 @@ a.navbar-brand.mr-2:hover {
 #volumeSlider {
     width: 100%;
 }
+
+.hidden {
+    display:none;
+}

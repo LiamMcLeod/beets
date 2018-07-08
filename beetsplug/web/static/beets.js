@@ -250,7 +250,6 @@ $(function () {
         events: {
             'click': 'select',
             'dblclick': 'play'
-            // on hover show main-view  
         },
         initialize: function () {
             this.playing = false;
@@ -339,9 +338,16 @@ $(function () {
         selectItem: function (view) {
             // Mark row as selected.
             $('#results tr').removeClass("selected");
+            if (!$('#results tr').hasClass("selected")) {
+                $('td button').addClass('hidden');
+            }
+
             $(view.el).addClass("selected");
             // move this to a button.
             //Modal activate
+            $('.selected td button').removeClass('hidden');
+
+
             // $('#main-detail-modal').addClass('active');
 
             // Show main and extra detail.
