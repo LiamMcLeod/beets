@@ -236,7 +236,9 @@ a.navbar-brand.mr-2:hover {
 .m-top-10 {
     margin-top: 10px;
 }
-
+.p-top-15 {
+    padding-top: 15px;
+}
 .more-button {
     margin-top: -10px;
     height: 20px;
@@ -272,7 +274,8 @@ a.navbar-brand.mr-2:hover {
 }
 
 #more-panel a:hover {
-    color: #575757;
+    /* color: #575757; */
+    color: #f1f1f1;
 }
 
 #more-panel .close-more-button {

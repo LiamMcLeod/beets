@@ -244,7 +244,21 @@ $(function () {
     var Items = Backbone.Collection.extend({
         model: Item
     });
-
+    // Test View 
+    var NowPlayingView = Backbone.View.extend({
+        tagName: "div",
+        template: _.template($('#now-playing-template').html()),
+        events: {
+            'click .play': 'play',
+        },
+        render: function () {
+            $(this.el).html(this.template(this.model.toJSON()));
+            return this;
+        },
+        play: function () {
+            // app.playItem(this.model);
+        }
+    });
     // Item views.
     var ItemEntryView = Backbone.View.extend({
         tagName: "tr",
@@ -416,16 +430,18 @@ $(function () {
             }
         },
         playItem: function (item) {
+            // console.log(item);
             var url = 'item/' + item.get('id') + '/file';
             $('#player audio').attr('src', url);
             // Controls playback
             $('#player audio').get(0).play();
-
             if (this.playingItem != null) {
                 this.playingItem.entryView.setPlaying(false);
             }
             item.entryView.setPlaying(true);
             this.playingItem = item;
+            //TODO Build the template here
+            this.nowPlaying(item);
         },
         audioPause: function () {
             this.playingItem.entryView.setPlaying(false);
@@ -449,7 +465,14 @@ $(function () {
                 return;
             }
             this.playItem(this.shownItems.at(nextIdx));
-        }
+        },
+        nowPlaying: function (items) {
+                    // Show main and extra detail.
+            var view = new NowPlayingView({
+                model: items
+            });
+            $('#more-panel-detail').empty().append(view.render().el);
+        },
     });
     var app = new AppView();
 
@@ -474,9 +497,6 @@ function openNav() {
     $('#more-panel').css({'height': '100%'});
     $('#moreButton').addClass('hidden');
     $('#nomoreButton').removeClass('hidden');
-    // $("#bottom-more-panel").show();
-    // $("#nomore-button").show();
-    // $("#more-button").hide();
 }
 
 // Close/hide the botnav
@@ -484,7 +504,4 @@ function closeNav() {
     $('#more-panel').css({'height': '0'});
     $('#moreButton').removeClass('hidden');
     $('#nomoreButton').addClass('hidden');
-    // $("#bottom-more-panel").hide();
-    // $("#nomore-button").hide();
-    // $("#more-button").show();
 }

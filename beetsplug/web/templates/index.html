@@ -37,7 +37,7 @@
 <body>
     <div class="container">
         <header id="header" class="columns">
-            <div class="column col-2 text-center">
+            <div class="column col-2 text-center p-top-15">
                 <a class="navbar-brand mr-2" href="/">Beets</a>
             </div>
             <div class="column col-6">
@@ -139,6 +139,9 @@
     <!-- add top margin of 20px-ish -->
     <div id="more-panel" class="container">
         <a href="javascript:void(0)" class="close-more-button" onclick="closeNav()">&times;</a>
+        <div id="more-panel-detail">
+
+        </div>
     </div>
 
     <section id="player" class="container">
@@ -162,9 +165,11 @@
                 <a href="javascript:void(0)" class="btn btn-link" id="btnNext">Next</a>
             </div>
 
-            <!-- <button class="disabled">&#9654;</button>
-        <button class="play">&#9654;</button>
-        <button class="pause" style="letter-spacing: 1px;">&#10073;&#10073;</button> -->
+            <!-- 
+                <button class="disabled">&#9654;</button>
+                <button class="play">&#9654;</button>
+                <button class="pause" style="letter-spacing: 1px;">&#10073;&#10073;</button>
+            -->
 
             <div class="column col-6">
                 <span id=seek>
@@ -190,6 +195,26 @@
     </section>
 
     <!-- Templates. -->
+    <!-- Start of a test template -->
+    <script type="text/template" id="now-playing-template">
+        <span class="artist">
+            <%= artist %>
+        </span>
+        <span class="album">
+            <span class="albumtitle">
+                <%= album %>
+            </span>
+            <span class="year">(
+                <%= year %>)</span>
+        </span>
+        <span class="title">
+            <%= title %>
+        </span>
+        <div class="container align-center">
+            <button class="play btn btn-primary m-top-15">Play</button>
+        </div>
+    </script>
+
     <!-- Search Table Template -->
     <script type="text/template" id="item-entry-template">
         <td>
