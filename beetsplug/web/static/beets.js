@@ -288,8 +288,13 @@ $(function () {
             'click .close': 'close',
             'click .modal-overlay': 'close'
         },
-        render: function () {
-            $(this.el).html(this.template(this.model.toJSON()));
+        render: function (playing) {
+            if (playing){
+                //todo display now playing instead
+                // $(this.el).html(this.template(this.model.toJSON()));
+            } else {
+                $(this.el).html(this.template(this.model.toJSON()));
+            }
             return this;
         },
         play: function () {
@@ -323,8 +328,6 @@ $(function () {
         },
         querySubmit: function (ev) {
             ev.preventDefault();
-            // console.log(ev);
-            // console.log(typeof(ev.currentTarget));
             if (ev.currentTarget.id=='library-tab'){
 
                 router.navigate('', true);
@@ -388,13 +391,28 @@ $(function () {
         },
         toggleMainDetailView: function (e) {
             if (e){
-                e.preventDefault();
-            }
-            var modal = $('#main-detail-modal');
-            if (modal.hasClass('active')) {
-                modal.removeClass('active');
+                    e.preventDefault();
+                    var modal = $('#main-detail-modal');
+                    if (e.currentTarget.id=='playing-tab'){
+                        // todo load other data
+                        // var mainDetailView = new ItemMainDetailView({
+                        //     model: view.model
+                        // });
+                        // $('#main-detail').empty().append(mainDetailView.render(true).el);
+
+                        if (modal.hasClass('active')) {
+                            modal.removeClass('active');
+                        } else {
+                            modal.addClass('active');
+                        }
+                    }
             } else {
-                modal.addClass('active');
+                var modal = $('#main-detail-modal');
+                if (modal.hasClass('active')) {
+                    modal.removeClass('active');
+                } else {
+                    modal.addClass('active');
+                }
             }
         },
         playItem: function (item) {
