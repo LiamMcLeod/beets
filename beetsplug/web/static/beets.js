@@ -249,7 +249,8 @@ $(function () {
         template: _.template($('#item-entry-template').html()),
         events: {
             'click': 'select',
-            'dblclick': 'play'
+            'dblclick': 'play',
+            'click .info': 'showModal',
         },
         initialize: function () {
             this.playing = false;
@@ -271,6 +272,9 @@ $(function () {
                 this.$('.playing').show();
             else
                 this.$('.playing').hide();
+        },
+        showModal: function (){
+            app.showMainDetailView();
         }
     });
     //Holds Title, Artist, Album etc.
@@ -347,9 +351,6 @@ $(function () {
             //Modal activate
             $('.selected td button').removeClass('hidden');
 
-
-            // $('#main-detail-modal').addClass('active');
-
             // Show main and extra detail.
             var mainDetailView = new ItemMainDetailView({
                 model: view.model
@@ -360,6 +361,9 @@ $(function () {
                 model: view.model
             });
             $('#extra-detail').empty().append(extraDetailView.render().el);
+        },
+        showMainDetailView: function () {
+            $('#main-detail-modal').addClass('active');
         },
         playItem: function (item) {
             var url = 'item/' + item.get('id') + '/file';
