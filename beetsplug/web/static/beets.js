@@ -466,11 +466,14 @@ $(function () {
             }
             this.playItem(this.shownItems.at(nextIdx));
         },
-        nowPlaying: function (items) {
+        nowPlaying: function (item) {
+            $('#moreButton').removeClass('hidden');
                     // Show main and extra detail.
+            //todo start making an object that has all the things I want rendered
             var view = new NowPlayingView({
-                model: items
+                model: item
             });
+            console.log(view);
             $('#more-panel-detail').empty().append(view.render().el);
         },
     });
